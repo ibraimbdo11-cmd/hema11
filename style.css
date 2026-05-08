@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Cairo', sans-serif;
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#0a0a0a;
+    color:#00ff66;
+}
+
+/* HEADER */
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 40px;
+    background:#050505;
+    border-bottom:1px solid #00ff66;
+    position:sticky;
+    top:0;
+}
+
+.logo{
+    font-size:22px;
+    font-weight:bold;
+}
+
+nav a{
+    color:#00ff66;
+    text-decoration:none;
+    margin-right:20px;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:white;
+}
+
+/* HERO */
+.hero{
+    text-align:center;
+    padding:80px 20px;
+}
+
+.hero h1{
+    font-size:48px;
+}
+
+.glow{
+    text-shadow:0 0 10px #00ff66;
+}
+
+/* SERVICES */
+.services{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:20px;
+    padding:50px 20px;
+}
+
+.card{
+    width:300px;
+    background:#111;
+    border:1px solid #00ff66;
+    border-radius:15px;
+    overflow:hidden;
+    text-align:center;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 0 20px #00ff66;
+}
+
+.card img{
+    width:100%;
+}
+
+.card h3{
+    margin:10px 0;
+}
+
+.card p{
+    color:#aaa;
+    padding:0 10px 20px;
+}
+
+/* CONTACT */
+.contact{
+    text-align:center;
+    padding:80px 20px;
+    border-top:1px solid #111;
+}
+
+/* BUTTON */
+.btn{
+    display:inline-block;
+    padding:12px 25px;
+    border:1px solid #00ff66;
+    color:#00ff66;
+    text-decoration:none;
+    border-radius:30px;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#00ff66;
+    color:black;
+    box-shadow:0 0 20px #00ff66;
+}
+
+/* WELCOME */
+.welcome-body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.welcome-box{
+    text-align:center;
+    padding:40px;
+    border:1px solid #00ff66;
+    border-radius:20px;
+    box-shadow:0 0 25px #00ff66;
+}
