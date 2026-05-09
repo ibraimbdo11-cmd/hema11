@@ -5,24 +5,30 @@
     padding:0;
     box-sizing:border-box;
     font-family:'Cairo', sans-serif;
-    scroll-behavior:smooth;
 }
 
 body{
-    background:#0a0a0a;
+    background:black;
     color:#00ff66;
+}
+
+/* MATRIX */
+#matrix{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:-1;
 }
 
 /* HEADER */
 header{
     display:flex;
     justify-content:space-between;
-    align-items:center;
     padding:20px 40px;
-    background:#050505;
     border-bottom:1px solid #00ff66;
-    position:sticky;
-    top:0;
+    background:rgba(0,0,0,0.7);
 }
 
 .logo{
@@ -34,21 +40,12 @@ nav a{
     color:#00ff66;
     text-decoration:none;
     margin-right:20px;
-    transition:0.3s;
-}
-
-nav a:hover{
-    color:white;
 }
 
 /* HERO */
 .hero{
     text-align:center;
-    padding:80px 20px;
-}
-
-.hero h1{
-    font-size:48px;
+    padding:60px;
 }
 
 .glow{
@@ -61,7 +58,7 @@ nav a:hover{
     justify-content:center;
     flex-wrap:wrap;
     gap:20px;
-    padding:50px 20px;
+    padding:40px;
 }
 
 .card{
@@ -69,34 +66,42 @@ nav a:hover{
     background:#111;
     border:1px solid #00ff66;
     border-radius:15px;
-    overflow:hidden;
     text-align:center;
-    transition:0.3s;
+    padding-bottom:15px;
 }
 
-.card:hover{
-    transform:translateY(-5px);
-    box-shadow:0 0 20px #00ff66;
+.img-box{
+    height:180px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border-bottom:1px solid #00ff66;
 }
 
-.card img{
-    width:100%;
+/* ABOUT */
+.about{
+    text-align:center;
+    padding:70px;
 }
 
-.card h3{
-    margin:10px 0;
-}
-
-.card p{
+.about-text{
     color:#aaa;
-    padding:0 10px 20px;
+    max-width:600px;
+    margin:auto;
 }
 
-/* CONTACT */
-.contact{
-    text-align:center;
-    padding:80px 20px;
-    border-top:1px solid #111;
+.features{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:10px;
+    margin:20px 0;
+}
+
+.feature{
+    border:1px solid #00ff66;
+    padding:10px;
+    border-radius:10px;
 }
 
 /* BUTTON */
@@ -105,15 +110,16 @@ nav a:hover{
     padding:12px 25px;
     border:1px solid #00ff66;
     color:#00ff66;
-    text-decoration:none;
+    background:transparent;
     border-radius:30px;
+    text-decoration:none;
+    cursor:pointer;
     transition:0.3s;
 }
 
 .btn:hover{
     background:#00ff66;
     color:black;
-    box-shadow:0 0 20px #00ff66;
 }
 
 /* WELCOME */
@@ -129,5 +135,4 @@ nav a:hover{
     padding:40px;
     border:1px solid #00ff66;
     border-radius:20px;
-    box-shadow:0 0 25px #00ff66;
 }

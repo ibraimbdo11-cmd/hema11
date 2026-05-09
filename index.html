@@ -3,19 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>HEMA - الخدمات</title>
 
 <link rel="stylesheet" href="style.css">
+
+<script>
+if(!sessionStorage.getItem("entered")){
+    window.location.href = "welcome.html";
+}
+</script>
 </head>
+
 <body>
+
+<canvas id="matrix"></canvas>
 
 <header>
     <div class="logo">HEMA</div>
-
     <nav>
         <a href="#services">الخدمات</a>
-        <a href="#contact">تواصل</a>
+        <a href="#about">About</a>
     </nav>
 </header>
 
@@ -24,41 +31,76 @@
     <p>أفضل الخدمات الرقمية بأفضل سعر</p>
 </section>
 
-<!-- SERVICES -->
 <section id="services" class="services">
 
-    <!-- QUREO -->
     <div class="card">
-
-        <img src="https://me-tp.qureo.education/assets/image/4a977111a907a169a3fc.png" alt="Qureo">
-
+        <div class="img-box">QUREO</div>
         <h3>منصة Qureo</h3>
-
         <p>حل منصة Qureo بأرخص الأسعار. تواصل معنا الآن.</p>
-
-        <a class="btn rounded"
-           href="https://wa.me/201120516479?text=أريد%20حل%20منصة%20Qureo"
-           target="_blank">
-            تواصل واتساب
-        </a>
+        <a class="btn" href="https://wa.me/201120516479?text=Qureo">تواصل واتساب</a>
     </div>
 
-    <!-- SERVICE 2 -->
     <div class="card">
-
-        <img src="https://egy.learning.programming-sc.com/assets/images/tofas.webp" alt="service">
-
+        <div class="img-box">TEST</div>
         <h3>الاختبار التجريبي</h3>
-
-        <p>حل الاختبار التجريبي بارخص الأسعار تواصل معنا الآن.</p>  </p>
-
-        <a class="btn rounded"
-           href="https://wa.me/201120516479"
-           target="_blank">
-            تواصل واتساب
-        </a>
+        <p>حل الاختبار التجريبي بأرخص الأسعار. تواصل معنا الآن.</p>
+        <a class="btn" href="https://wa.me/201120516479?text=Test">تواصل واتساب</a>
     </div>
 
+</section>
+
+<section id="about" class="about">
+
+    <h2 class="glow">About HEMA</h2>
+
+    <p class="about-text">
+        HEMA منصة تقدم خدمات رقمية بأسعار مناسبة ودعم سريع عبر واتساب.
+    </p>
+
+    <div class="features">
+        <div class="feature">⚡ سرعة</div>
+        <div class="feature">💰 أسعار مناسبة</div>
+        <div class="feature">🔒 أمان</div>
+        <div class="feature">📞 دعم مباشر</div>
+    </div>
+
+    <a class="btn" href="https://wa.me/201120516479">تواصل معنا</a>
+
+</section>
+
+<script>
+const canvas = document.getElementById("matrix");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const letters = "01HEMAQUREO".split("");
+const fontSize = 14;
+const columns = canvas.width / fontSize;
+
+const drops = Array(Math.floor(columns)).fill(1);
+
+function draw(){
+    ctx.fillStyle = "rgba(0,0,0,0.05)";
+    ctx.fillRect(0,0,canvas.width,canvas.height);
+
+    ctx.fillStyle = "#00ff66";
+    ctx.font = fontSize + "px monospace";
+
+    for(let i=0;i<drops.length;i++){
+        const text = letters[Math.floor(Math.random()*letters.length)];
+        ctx.fillText(text, i*fontSize, drops[i]*fontSize);
+
+        if(drops[i]*fontSize > canvas.height && Math.random()>0.975){
+            drops[i]=0;
+        }
+        drops[i]++;
+    }
+}
+
+setInterval(draw,33);
+</script>
 
 </body>
 </html>
