@@ -166,6 +166,42 @@ nav a:hover{
     box-shadow:0 0 35px rgba(0,255,102,0.6);
 }
 
+/* 🔥 تنظيم البادجات */
+.discount-badge{
+    position:absolute;
+    top:15px;
+    left:15px;
+    background:#00ff66;
+    color:black;
+    padding:8px 14px;
+    border-radius:20px;
+    font-size:13px;
+    font-weight:bold;
+    box-shadow:0 0 15px #00ff66;
+}
+
+.new-badge{
+    position:absolute;
+    top:15px;
+    right:15px;
+    background:#00ff66;
+    color:black;
+    padding:8px 14px;
+    border-radius:20px;
+    font-size:13px;
+    font-weight:bold;
+    box-shadow:0 0 25px #00ff66;
+    animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.15);}
+    100%{transform:scale(1);}
+}
+
+/* باقي التذكرة */
+
 .ticket-top{
     display:inline-flex;
     align-items:center;
@@ -186,19 +222,6 @@ nav a:hover{
     box-shadow:0 0 10px #00ff66;
 }
 
-.discount-badge{
-    position:absolute;
-    top:20px;
-    left:20px;
-    background:#00ff66;
-    color:black;
-    padding:10px 16px;
-    border-radius:30px;
-    font-size:14px;
-    font-weight:bold;
-    box-shadow:0 0 15px #00ff66;
-}
-
 .ticket-title{
     font-size:30px;
     margin-top:15px;
@@ -214,12 +237,6 @@ nav a:hover{
     color:#bdbdbd;
     margin:25px 0;
     line-height:2;
-}
-
-.tofas-word{
-    color:#00ff66;
-    font-weight:bold;
-    text-shadow:0 0 10px #00ff66;
 }
 
 .price-box{
@@ -288,11 +305,6 @@ nav a:hover{
     padding:12px 20px;
     border-radius:15px;
     background:#111;
-    transition:0.3s;
-}
-
-.feature:hover{
-    box-shadow:0 0 15px #00ff66;
 }
 
 /* WELCOME */
@@ -324,35 +336,7 @@ nav a:hover{
     margin-bottom:25px;
 }
 
-/* ========================= */
-/* 🔥 NEW BADGE (تعديل هنا) */
-/* ========================= */
-
-.new-drop{
-    position:relative;
-}
-
-.new-badge{
-    position:absolute;
-    top:-15px;
-    right:20px;
-    background:#00ff66;
-    color:black;
-    padding:8px 18px;
-    border-radius:25px;
-    font-size:14px;
-    font-weight:bold;
-    box-shadow:0 0 25px #00ff66;
-    animation:pulse 1.5s infinite;
-}
-
-@keyframes pulse{
-    0%{transform:scale(1);}
-    50%{transform:scale(1.15);}
-    100%{transform:scale(1);}
-}
-
-/* PAYMENT BOX */
+/* PAYMENT */
 
 .payment-box{
     display:none;
@@ -365,21 +349,7 @@ nav a:hover{
     box-shadow:0 0 20px rgba(0,255,102,0.2);
 }
 
-.payment-box h3{
-    margin-bottom:10px;
-}
-
-.payment-box p{
-    color:#ccc;
-    margin:8px 0;
-}
-
-.note{
-    color:#888;
-    font-size:12px;
-}
-
-/* MOBILE */
+/* MOBILE (مُدمج بدون تكرار) */
 
 @media(max-width:768px){
 
@@ -393,23 +363,9 @@ nav a:hover{
     }
 
     .ticket-card{
-        width:100%;
+        width:95%;
     }
 
-    .welcome-box{
-        width:90%;
-    }
-}
-@media(max-width:768px){
-
-    /* تخلي التذكرة كارت كامل على الموبايل */
-    .ticket-card{
-        width:100%;
-        margin:0 10px;
-        border-radius:20px;
-    }
-
-    /* تصغير العنوان عشان يناسب الشاشة */
     .ticket-title{
         font-size:22px;
     }
@@ -422,23 +378,45 @@ nav a:hover{
         font-size:18px;
     }
 
-    /* ترتيب الخصائص يبقى أريح */
     .ticket-info{
         flex-direction:column;
         align-items:center;
     }
 
-    /* زر أوضح */
     .btn{
         width:100%;
         text-align:center;
     }
 
-    /* badge الجديد ما يطلعش بره الشاشة */
-    .new-badge{
-        top:-12px;
-        right:10px;
-        font-size:12px;
-        padding:6px 14px;
+    /* 🔥 FIX صفحة الدخول */
+    .welcome-body{
+        position:fixed;
+        inset:0;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        padding:0;
+        margin:0;
+    }
+
+    .welcome-box{
+        width:90%;
+        max-width:360px;
+        padding:30px 20px;
+        border-radius:25px;
+        text-align:center;
+    }
+
+    .welcome-box h1{
+        font-size:40px;
+    }
+
+    .welcome-box p{
+        font-size:14px;
+    }
+
+    .welcome-box .btn{
+        width:100%;
+        display:block;
     }
 }
