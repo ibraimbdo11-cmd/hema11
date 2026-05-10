@@ -275,8 +275,6 @@ nav a:hover{
     line-height:1.8;
 }
 
-/* FEATURES */
-
 .features{
     display:flex;
     justify-content:center;
@@ -297,7 +295,7 @@ nav a:hover{
     box-shadow:0 0 15px #00ff66;
 }
 
-/* ===== WELCOME PAGE FIX ===== */
+/* WELCOME */
 
 .welcome-body{
     height:100vh;
@@ -326,36 +324,36 @@ nav a:hover{
     margin-bottom:25px;
 }
 
-/* MOBILE */
+/* ========================= */
+/* 🔥 NEW BADGE (تعديل هنا) */
+/* ========================= */
 
-@media(max-width:768px){
-
-    header{
-        flex-direction:column;
-        gap:15px;
-    }
-
-    .hero h1{
-        font-size:35px;
-    }
-
-    .ticket-card{
-        width:100%;
-    }
-
-    .ticket-title{
-        font-size:24px;
-    }
-
-    .new-price{
-        font-size:38px;
-    }
-
-    .welcome-box{
-        width:90%;
-    }
-
+.new-drop{
+    position:relative;
 }
+
+.new-badge{
+    position:absolute;
+    top:-15px;
+    right:20px;
+    background:#00ff66;
+    color:black;
+    padding:8px 18px;
+    border-radius:25px;
+    font-size:14px;
+    font-weight:bold;
+    box-shadow:0 0 25px #00ff66;
+    animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.15);}
+    100%{transform:scale(1);}
+}
+
+/* PAYMENT BOX */
+
 .payment-box{
     display:none;
     margin-top:20px;
@@ -380,38 +378,67 @@ nav a:hover{
     color:#888;
     font-size:12px;
 }
-.new-drop{
-    position:relative;
-    animation: dropIn 0.8s ease;
-}
 
-.new-badge{
-    position:absolute;
-    top:-15px;
-    right:20px;
-    background:#00ff66;
-    color:black;
-    padding:8px 16px;
-    border-radius:25px;
-    font-size:14px;
-    font-weight:bold;
-    box-shadow:0 0 25px #00ff66;
-    animation:pulse 1.5s infinite;
-}
+/* MOBILE */
 
-@keyframes pulse{
-    0%{transform:scale(1);}
-    50%{transform:scale(1.1);}
-    100%{transform:scale(1);}
-}
+@media(max-width:768px){
 
-@keyframes dropIn{
-    from{
-        opacity:0;
-        transform:translateY(-30px);
+    header{
+        flex-direction:column;
+        gap:15px;
     }
-    to{
-        opacity:1;
-        transform:translateY(0);
+
+    .hero h1{
+        font-size:35px;
+    }
+
+    .ticket-card{
+        width:100%;
+    }
+
+    .welcome-box{
+        width:90%;
+    }
+}
+@media(max-width:768px){
+
+    /* تخلي التذكرة كارت كامل على الموبايل */
+    .ticket-card{
+        width:100%;
+        margin:0 10px;
+        border-radius:20px;
+    }
+
+    /* تصغير العنوان عشان يناسب الشاشة */
+    .ticket-title{
+        font-size:22px;
+    }
+
+    .new-price{
+        font-size:35px;
+    }
+
+    .old-price{
+        font-size:18px;
+    }
+
+    /* ترتيب الخصائص يبقى أريح */
+    .ticket-info{
+        flex-direction:column;
+        align-items:center;
+    }
+
+    /* زر أوضح */
+    .btn{
+        width:100%;
+        text-align:center;
+    }
+
+    /* badge الجديد ما يطلعش بره الشاشة */
+    .new-badge{
+        top:-12px;
+        right:10px;
+        font-size:12px;
+        padding:6px 14px;
     }
 }
