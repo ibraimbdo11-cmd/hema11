@@ -5,14 +5,17 @@
     padding:0;
     box-sizing:border-box;
     font-family:'Cairo', sans-serif;
+    scroll-behavior:smooth;
 }
 
 body{
     background:black;
     color:#00ff66;
+    overflow-x:hidden;
 }
 
 /* MATRIX */
+
 #matrix{
     position:fixed;
     top:0;
@@ -23,29 +26,45 @@ body{
 }
 
 /* HEADER */
+
 header{
     display:flex;
     justify-content:space-between;
+    align-items:center;
     padding:20px 40px;
     border-bottom:1px solid #00ff66;
     background:rgba(0,0,0,0.7);
+    position:sticky;
+    top:0;
+    z-index:1000;
 }
 
 .logo{
-    font-size:22px;
+    font-size:24px;
     font-weight:bold;
+    letter-spacing:2px;
 }
 
 nav a{
     color:#00ff66;
     text-decoration:none;
     margin-right:20px;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:white;
 }
 
 /* HERO */
+
 .hero{
     text-align:center;
-    padding:60px;
+    padding:80px 20px;
+}
+
+.hero h1{
+    font-size:50px;
 }
 
 .glow{
@@ -53,76 +72,233 @@ nav a{
 }
 
 /* SERVICES */
+
 .services{
     display:flex;
     justify-content:center;
     flex-wrap:wrap;
-    gap:20px;
-    padding:40px;
+    gap:25px;
+    padding:40px 20px;
 }
 
 .card{
-    width:300px;
+    width:320px;
     background:#111;
     border:1px solid #00ff66;
-    border-radius:15px;
+    border-radius:20px;
+    overflow:hidden;
     text-align:center;
-    padding-bottom:15px;
+    transition:0.4s;
+    padding-bottom:20px;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 0 25px #00ff66;
 }
 
 .img-box{
-    height:180px;
+    height:190px;
     display:flex;
     justify-content:center;
     align-items:center;
+    background:#0d0d0d;
     border-bottom:1px solid #00ff66;
+    font-size:28px;
+    font-weight:bold;
+    letter-spacing:3px;
 }
 
-/* ABOUT */
-.about{
-    text-align:center;
-    padding:70px;
+.card h3{
+    margin-top:20px;
+    font-size:24px;
 }
 
-.about-text{
-    color:#aaa;
-    max-width:600px;
-    margin:auto;
-}
-
-.features{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:10px;
-    margin:20px 0;
-}
-
-.feature{
-    border:1px solid #00ff66;
-    padding:10px;
-    border-radius:10px;
+.card p{
+    color:#bdbdbd;
+    line-height:1.8;
+    padding:15px;
 }
 
 /* BUTTON */
+
 .btn{
     display:inline-block;
-    padding:12px 25px;
+    padding:12px 28px;
     border:1px solid #00ff66;
     color:#00ff66;
     background:transparent;
-    border-radius:30px;
     text-decoration:none;
-    cursor:pointer;
+    border-radius:30px;
     transition:0.3s;
+    cursor:pointer;
 }
 
 .btn:hover{
     background:#00ff66;
     color:black;
+    box-shadow:0 0 20px #00ff66;
 }
 
-/* WELCOME */
+/* TICKET */
+
+.ticket-section{
+    display:flex;
+    justify-content:center;
+    padding:70px 20px;
+}
+
+.ticket-card{
+    position:relative;
+    width:400px;
+    background:linear-gradient(145deg,#101010,#050505);
+    border:2px solid #00ff66;
+    border-radius:25px;
+    padding:35px 25px;
+    text-align:center;
+    overflow:hidden;
+    transition:0.4s;
+    box-shadow:0 0 20px rgba(0,255,102,0.15);
+}
+
+.ticket-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 0 35px rgba(0,255,102,0.6);
+}
+
+.ticket-top{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:#111;
+    border:1px solid #00ff66;
+    padding:8px 18px;
+    border-radius:30px;
+    margin-bottom:20px;
+    font-size:14px;
+}
+
+.live-dot{
+    width:10px;
+    height:10px;
+    background:#00ff66;
+    border-radius:50%;
+    box-shadow:0 0 10px #00ff66;
+}
+
+.discount-badge{
+    position:absolute;
+    top:20px;
+    left:20px;
+    background:#00ff66;
+    color:black;
+    padding:10px 16px;
+    border-radius:30px;
+    font-size:14px;
+    font-weight:bold;
+    box-shadow:0 0 15px #00ff66;
+}
+
+.ticket-title{
+    font-size:30px;
+    margin-top:15px;
+    line-height:1.6;
+}
+
+.ticket-title span{
+    color:white;
+    text-shadow:0 0 12px #00ff66;
+}
+
+.ticket-text{
+    color:#bdbdbd;
+    margin:25px 0;
+    line-height:2;
+}
+
+.tofas-word{
+    color:#00ff66;
+    font-weight:bold;
+    text-shadow:0 0 10px #00ff66;
+}
+
+.price-box{
+    margin:25px 0;
+}
+
+.old-price{
+    color:#666;
+    text-decoration:line-through;
+    font-size:22px;
+    margin-left:10px;
+}
+
+.new-price{
+    color:#00ff66;
+    font-size:45px;
+    font-weight:bold;
+    text-shadow:0 0 15px #00ff66;
+}
+
+.ticket-info{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-bottom:25px;
+}
+
+.ticket-feature{
+    border:1px solid #00ff66;
+    background:#111;
+    padding:10px 15px;
+    border-radius:15px;
+    font-size:14px;
+    transition:0.3s;
+}
+
+.ticket-feature:hover{
+    box-shadow:0 0 15px #00ff66;
+}
+
+/* ABOUT */
+
+.about{
+    text-align:center;
+    padding:80px 20px;
+}
+
+.about-text{
+    color:#aaa;
+    max-width:700px;
+    margin:20px auto;
+    line-height:1.8;
+}
+
+/* FEATURES */
+
+.features{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:15px;
+    margin:30px 0;
+}
+
+.feature{
+    border:1px solid #00ff66;
+    padding:12px 20px;
+    border-radius:15px;
+    background:#111;
+    transition:0.3s;
+}
+
+.feature:hover{
+    box-shadow:0 0 15px #00ff66;
+}
+
+/* ===== WELCOME PAGE FIX ===== */
+
 .welcome-body{
     height:100vh;
     display:flex;
@@ -131,8 +307,111 @@ nav a{
 }
 
 .welcome-box{
+    width:350px;
     text-align:center;
     padding:40px;
     border:1px solid #00ff66;
+    border-radius:25px;
+    background:rgba(0,0,0,0.75);
+    box-shadow:0 0 25px rgba(0,255,102,0.3);
+}
+
+.welcome-box h1{
+    font-size:55px;
+    margin-bottom:15px;
+}
+
+.welcome-box p{
+    color:#bdbdbd;
+    margin-bottom:25px;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+    header{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    .hero h1{
+        font-size:35px;
+    }
+
+    .ticket-card{
+        width:100%;
+    }
+
+    .ticket-title{
+        font-size:24px;
+    }
+
+    .new-price{
+        font-size:38px;
+    }
+
+    .welcome-box{
+        width:90%;
+    }
+
+}
+.payment-box{
+    display:none;
+    margin-top:20px;
+    padding:20px;
+    border:1px solid #00ff66;
     border-radius:20px;
+    background:#111;
+    text-align:center;
+    box-shadow:0 0 20px rgba(0,255,102,0.2);
+}
+
+.payment-box h3{
+    margin-bottom:10px;
+}
+
+.payment-box p{
+    color:#ccc;
+    margin:8px 0;
+}
+
+.note{
+    color:#888;
+    font-size:12px;
+}
+.new-drop{
+    position:relative;
+    animation: dropIn 0.8s ease;
+}
+
+.new-badge{
+    position:absolute;
+    top:-15px;
+    right:20px;
+    background:#00ff66;
+    color:black;
+    padding:8px 16px;
+    border-radius:25px;
+    font-size:14px;
+    font-weight:bold;
+    box-shadow:0 0 25px #00ff66;
+    animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.1);}
+    100%{transform:scale(1);}
+}
+
+@keyframes dropIn{
+    from{
+        opacity:0;
+        transform:translateY(-30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }

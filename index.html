@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>HEMA - الخدمات</title>
 
 <link rel="stylesheet" href="style.css">
@@ -12,43 +15,116 @@ if(!sessionStorage.getItem("entered")){
     window.location.href = "welcome.html";
 }
 </script>
+
 </head>
 
 <body>
 
+<!-- MATRIX BACKGROUND -->
 <canvas id="matrix"></canvas>
 
+<!-- HEADER -->
 <header>
+
     <div class="logo">HEMA</div>
+
     <nav>
+        <a href="#ticket">التذكرة</a>
         <a href="#services">الخدمات</a>
         <a href="#about">About</a>
     </nav>
+
 </header>
 
+<!-- HERO -->
 <section class="hero">
+
     <h1 class="glow">خدماتنا</h1>
+
     <p>أفضل الخدمات الرقمية بأفضل سعر</p>
+
 </section>
 
+<!-- ================= TICKET (NOW TOP) ================= -->
+<section id="ticket" class="ticket-section new-drop">
+
+    <div class="ticket-card">
+
+        <div class="new-badge">جديد</div>
+
+        <div class="ticket-top">
+            <span class="live-dot"></span>
+            عرض خاص اليوم
+        </div>
+
+        <div class="discount-badge">
+            خصم 40%
+        </div>
+
+        <h2 class="ticket-title">
+            🎟️ تذكرة حجز اختبار <span>TOFAS</span>
+        </h2>
+
+        <p class="ticket-text">
+            احجز الآن مكانك لحل اختبار TOFAS بسعر مخفض
+        </p>
+
+        <div class="price-box">
+            <span class="old-price">50ج</span>
+            <span class="new-price">30ج</span>
+        </div>
+
+        <div class="ticket-info">
+            <div class="ticket-feature">⚡ تأكيد سريع</div>
+            <div class="ticket-feature">🔒 حجز مضمون</div>
+            <div class="ticket-feature">📞 دعم مباشر</div>
+        </div>
+
+        <button class="btn" onclick="openPaymentBox()">
+            شراء التذكرة
+        </button>
+
+        <div id="paymentBox" class="payment-box">
+
+            <h3>💳 طرق الدفع</h3>
+
+            <p>📌 Instapay: <b>01112656610</b></p>
+            <p>📌 Vodafone Cash: <b>01098693379</b></p>
+
+            <p class="note">
+                بعد الدفع قم بإرسال صورة الإثبات وسيتم التأكيد
+            </p>
+
+            <button class="btn" onclick="sendProof()">
+                إرسال إثبات الدفع
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- SERVICES -->
 <section id="services" class="services">
 
     <div class="card">
         <div class="img-box">QUREO</div>
         <h3>منصة Qureo</h3>
-        <p>حل منصة Qureo بأرخص الأسعار. تواصل معنا الآن.</p>
-        <a class="btn" href="https://wa.me/201120516479?text=Qureo">تواصل واتساب</a>
+        <p>حل منصة Qureo بأرخص الأسعار</p>
+        <a class="btn" href="https://wa.me/201120516479">تواصل واتساب</a>
     </div>
 
     <div class="card">
         <div class="img-box">TEST</div>
         <h3>الاختبار التجريبي</h3>
-        <p>حل الاختبار التجريبي بأرخص الأسعار. تواصل معنا الآن.</p>
-        <a class="btn" href="https://wa.me/201120516479?text=Test">تواصل واتساب</a>
+        <p>حل الاختبار التجريبي بأرخص الأسعار</p>
+        <a class="btn" href="https://wa.me/201120516479">تواصل واتساب</a>
     </div>
 
 </section>
 
+<!-- ABOUT -->
 <section id="about" class="about">
 
     <h2 class="glow">About HEMA</h2>
@@ -57,31 +133,24 @@ if(!sessionStorage.getItem("entered")){
         HEMA منصة تقدم خدمات رقمية بأسعار مناسبة ودعم سريع عبر واتساب.
     </p>
 
-    <div class="features">
-        <div class="feature">⚡ سرعة</div>
-        <div class="feature">💰 أسعار مناسبة</div>
-        <div class="feature">🔒 أمان</div>
-        <div class="feature">📞 دعم مباشر</div>
-    </div>
-
-    <a class="btn" href="https://wa.me/201120516479">تواصل معنا</a>
-
 </section>
 
+<!-- MATRIX SCRIPT -->
 <script>
+
 const canvas = document.getElementById("matrix");
 const ctx = canvas.getContext("2d");
 
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-const letters = "01HEMAQUREO".split("");
+const letters = "01HEMAQUREOTOFAS".split("");
 const fontSize = 14;
 const columns = canvas.width / fontSize;
-
 const drops = Array(Math.floor(columns)).fill(1);
 
 function draw(){
+
     ctx.fillStyle = "rgba(0,0,0,0.05)";
     ctx.fillRect(0,0,canvas.width,canvas.height);
 
@@ -89,17 +158,31 @@ function draw(){
     ctx.font = fontSize + "px monospace";
 
     for(let i=0;i<drops.length;i++){
+
         const text = letters[Math.floor(Math.random()*letters.length)];
+
         ctx.fillText(text, i*fontSize, drops[i]*fontSize);
 
         if(drops[i]*fontSize > canvas.height && Math.random()>0.975){
             drops[i]=0;
         }
+
         drops[i]++;
     }
 }
 
 setInterval(draw,33);
+
+/* PAYMENT SYSTEM */
+function openPaymentBox(){
+    document.getElementById("paymentBox").style.display = "block";
+}
+
+function sendProof(){
+    window.location.href =
+    "https://wa.me/201120516479?text=تم%20الدفع%20وإرسال%20إثبات%20تذكرة%20TOFAS%20يرجى%20التأكيد";
+}
+
 </script>
 
 </body>
